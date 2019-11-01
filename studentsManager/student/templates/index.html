@@ -5,12 +5,21 @@
     <title>学员管理系统</title>
 </head>
 <body>
+    <h3>
+        <a href="/admin/">Admin</a>
+    </h3>
     <ul>
-        {%  for Student in students %}
+        {%  for student in students %}
             <li>
-                {{ Student.name }} - {{ Student.get_status_display }}
+                {{ student.name }} - {{ student.get_status_display }}
             </li>
         {% endfor %}
     </ul>
+    <hr/>
+    <form action="/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
 </body>
 </html>
